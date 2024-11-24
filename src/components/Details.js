@@ -52,6 +52,12 @@ const Details = () => {
         })
             .then(result => {
                 console.log("Result after submit", result)
+                setValue({
+                    currentPassword: "",
+                    newPassword: "",
+                    confirmPassword: "",
+                });
+                setResetHide(false);
                 alert("Password Updated Successfully...!!")
             })
             .catch(err=>{console.log({err})
