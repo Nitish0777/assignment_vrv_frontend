@@ -30,7 +30,6 @@ const AddDataComp = ({ heading, button }) => {
       if (res.status === 201) {
         setValue({ category: "Actor" });
         setChange(!change);
-        history.push("/login");
         alert("Data Added Successfully");
       }
     } catch (err) {
