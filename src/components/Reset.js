@@ -9,7 +9,7 @@ const Reset = () => {
     const forgotHandle=(e)=>{
         e.preventDefault();
         setPasswordError("")
-        axios.post('https://assignment-vrv.vercel.app/forgot-password',{"email":email})
+        axios.post('https://assignment-vrv.vercel.app/api/forgot-password',{"email":email})
         .then(result=>{
             console.log(result)
             alert(`Email sent to ${email} check your mail..`)

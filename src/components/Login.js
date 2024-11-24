@@ -21,7 +21,7 @@ const Login = () => {
         setEmailError('');
         setPasswordError('');
         try {
-            const res = await axios.post('https://assignment-vrv.vercel.app/login/', value);
+            const res = await axios.post('https://assignment-vrv.vercel.app/api/login/', value);
             sessionStorage.setItem('auth-token', res.headers['auth-token']);
             const { user, role, active } = res.data;
 
@@ -30,7 +30,7 @@ const Login = () => {
                 setIsAuth(!isAuth);
                 history.push({ pathname: '/showdata', state: { datacheck: res.data } });
             } else if (user && active) {
-                const userDetails = await axios.get(`https://assignment-vrv.vercel.app/user-details/${user}`);
+                const userDetails = await axios.get(`https://assignment-vrv.vercel.app/api/user-details/${user}`);
                 settruevalue(!truevalue);
                 setIsAuth(!isAuth);
                 history.push({ pathname: '/showdata', state: { datacheck: userDetails.data } });

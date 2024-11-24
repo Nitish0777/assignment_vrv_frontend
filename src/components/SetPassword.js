@@ -13,7 +13,7 @@ const SetPassword = () => {
     const handleSubmit=(e)=>{
         e.preventDefault();
         setWarning("")
-        axios.post(`https://assignment-vrv.vercel.app/new-password/`,{value,token})
+        axios.post(`https://assignment-vrv.vercel.app/api/new-password/`,{value,token})
         .then(result=>{
             alert('Passwor updated Successfully')
         }).catch(err=>{

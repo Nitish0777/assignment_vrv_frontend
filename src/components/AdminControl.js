@@ -32,7 +32,7 @@ const AdminControl = () => {
     useEffect(() => {
         const token = sessionStorage.getItem('auth-token');
         console.log("Value of filter", filter)
-        axios.get(`https://assignment-vrv.vercel.app/filter/${filter}`, token && {
+        axios.get(`https://assignment-vrv.vercel.app/api/filter/${filter}`, token && {
             headers: {
                 "auth-token":
                     token
@@ -47,7 +47,7 @@ const AdminControl = () => {
     useEffect(() => {
         const token = sessionStorage.getItem('auth-token');
 
-        axios.get('https://assignment-vrv.vercel.app/', token && {
+        axios.get('https://assignment-vrv.vercel.app/api/', token && {
             headers: {
                 "auth-token":
                     token
@@ -65,7 +65,7 @@ const AdminControl = () => {
         console.log("All Data")
         const token = sessionStorage.getItem('auth-token');
 
-        axios.get('https://assignment-vrv.vercel.app/', token && {
+        axios.get('https://assignment-vrv.vercel.app/api/', token && {
             headers: {
                 "auth-token":
                     token
@@ -82,7 +82,7 @@ const AdminControl = () => {
     useEffect(async () => {
         try {
             console.log("hello sign")
-            const dropval = await axios.get('https://assignment-vrv.vercel.app/dropdownvalue')
+            const dropval = await axios.get('https://assignment-vrv.vercel.app/api/dropdownvalue')
             const storeddrop = dropval.data
             setDrop(storeddrop)
             setFilterDrop(storeddrop)
@@ -94,7 +94,7 @@ const AdminControl = () => {
     const deleteValue = async (id) => {
 
         try {
-            axios.patch(`https://assignment-vrv.vercel.app/deactive/${id}`)
+            axios.patch(`https://assignment-vrv.vercel.app/api/deactive/${id}`)
                 .then(result => {
                     if (result.status === 200) {
                         setStatus(false)
@@ -107,7 +107,7 @@ const AdminControl = () => {
     const activeValue = async (id) => {
 
         try {
-            axios.patch(`https://assignment-vrv.vercel.app/active/${id}`)
+            axios.patch(`https://assignment-vrv.vercel.app/api/active/${id}`)
                 .then(result => {
                     if (result.status === 200) {
                         setStatus(true)
@@ -131,7 +131,7 @@ const AdminControl = () => {
         try {
             console.log("Working..")
             const token = sessionStorage.getItem('auth-token');
-            const port = 'https://assignment-vrv.vercel.app/user-details';
+            const port = 'https://assignment-vrv.vercel.app/api/user-details';
             const res = await axios.patch(`${port}/${id}`, { "email": email, "fullname": fullname, "category": categoryid }, token && {
                 headers: {
                     "auth-token":
@@ -182,7 +182,7 @@ const AdminControl = () => {
 
     useEffect(() => {
         const token = sessionStorage.getItem("auth-token")
-        axios.post(`https://assignment-vrv.vercel.app/${search}`, token && {
+        axios.post(`https://assignment-vrv.vercel.app/api/${search}`, token && {
             headers: {
                 "auth-token":
                     token
@@ -192,7 +192,7 @@ const AdminControl = () => {
             console.log("Result", result)
         }).catch(err => {
             console.log({ err })
-            axios.get('https://assignment-vrv.vercel.app/', token && {
+            axios.get('https://assignment-vrv.vercel.app/api/', token && {
                 headers: {
                     "auth-token":
                         token

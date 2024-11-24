@@ -29,7 +29,7 @@ const Details = () => {
     useEffect(async () => {
         try {
             console.log("hello sign")
-            const dropval = await axios.get('https://assignment-vrv.vercel.app/dropdownvalue')
+            const dropval = await axios.get('https://assignment-vrv.vercel.app/api/dropdownvalue')
             const storeddrop = dropval.data
             setDrop(storeddrop)
             setFilterDrop(storeddrop)
@@ -44,7 +44,7 @@ const Details = () => {
         const token = sessionStorage.getItem('auth-token');
         console.log("Submit",value)
 
-        axios.patch(`https://assignment-vrv.vercel.app/reset-password/${_id}`,value, token && {
+        axios.patch(`https://assignment-vrv.vercel.app/api/reset-password/${_id}`,value, token && {
             headers: {
                 "auth-token":
                     token
@@ -72,7 +72,7 @@ const Details = () => {
         console.log(data)
         try{
             console.log("Working..")
-            const port = 'https://assignment-vrv.vercel.app/user-details';
+            const port = 'https://assignment-vrv.vercel.app/api/user-details';
             const token = sessionStorage.getItem('auth-token');
 
             const res = await axios.patch(`${port}/${_id}`, { "email": email, "fullname": fullname ,"category":filter}, token && {

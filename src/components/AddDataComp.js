@@ -21,7 +21,7 @@ const AddDataComp = ({ heading, button }) => {
         console.log(value);
 
         try {
-            const res = await axios.post('https://assignment-vrv.vercel.app/signup/', value);
+            const res = await axios.post('https://assignment-vrv.vercel.app/api/signup/', value);
             if (res.status === 201) {
                 setValue({ category: 'Actor' });
                 setChange(!change);
@@ -42,7 +42,7 @@ const AddDataComp = ({ heading, button }) => {
     useEffect(() => {
         const fetchDropdownValues = async () => {
             try {
-                const dropval = await axios.get('https://assignment-vrv.vercel.app/dropdownvalue');
+                const dropval = await axios.get('https://assignment-vrv.vercel.app/apidropdownvalue');
                 setDrop(dropval.data);
             } catch (er) {
                 console.error(er);
