@@ -31,12 +31,21 @@ const Home = () => {
                 <hr className="my-4" />
                 <div className="d-flex justify-content-center mt-4">
                     {isLoggedIn ? (
-                        <button
-                            className="btn btn-danger btn-lg mx-2"
-                            onClick={handleLogout}
-                        >
-                            Logout
-                        </button>
+                        <>
+                            <button
+                                className="btn btn-danger btn-lg mx-2"
+                                onClick={handleLogout}
+                            >
+                                Logout
+                            </button>
+                            <Link
+                                className="btn btn-danger btn-lg mx-2"
+                                to="/showdata"
+                                role="button"
+                            >
+                                Get All User Data
+                            </Link>
+                        </>
                     ) : (
                         <>
                             <Link className="btn btn-primary btn-lg mx-2" to="/signup" role="button">
